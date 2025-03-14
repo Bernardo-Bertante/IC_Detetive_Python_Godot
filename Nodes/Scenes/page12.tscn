@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkxibhla7f86k"]
+
+[ext_resource type="Script" path="res://Nodes/Scenes/page12.gd" id="1_2k2k7"]
+[ext_resource type="Texture2D" uid="uid://be14w3sd0qwpd" path="res://Sprites/NotePage9.png" id="2_edoef"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vie46"]
+font_size = 22
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2k2k7")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_edoef")
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.294
+anchor_top = 0.72
+anchor_right = 0.676
+anchor_bottom = 0.922
+offset_left = -0.320007
+offset_top = -0.200012
+offset_right = -0.28009
+offset_bottom = 0.279968
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_vie46")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="Label"]
+one_shot = true
+autostart = true
+
+[node name="ChangeText" type="Timer" parent="."]
+wait_time = 17.0
+one_shot = true
+autostart = true
+
+[node name="FinishScene" type="Timer" parent="."]
+wait_time = 28.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Label/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="ChangeText" to="." method="_on_change_text_timeout"]
+[connection signal="timeout" from="FinishScene" to="." method="_on_finish_scene_timeout"]

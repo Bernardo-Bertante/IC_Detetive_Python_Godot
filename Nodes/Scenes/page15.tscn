@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=3 uid="uid://ei6pqw5upode"]
+
+[ext_resource type="Script" path="res://Nodes/Scenes/page_15.gd" id="1_qvy06"]
+[ext_resource type="Texture2D" uid="uid://c8hj4ar8nhckf" path="res://Sprites/NotePage17.png" id="2_oxlxj"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qvy06")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_oxlxj")
+
+[node name="ExitLeft" type="Button" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.254
+anchor_bottom = 1.0
+offset_right = -0.119995
+grow_vertical = 2
+flat = true
+
+[node name="ExitRight" type="Button" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.722
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.160095
+grow_horizontal = 0
+grow_vertical = 2
+flat = true
+
+[node name="Next" type="Button" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.662
+anchor_top = 0.843
+anchor_right = 0.714
+anchor_bottom = 0.928
+offset_left = -0.360107
+offset_top = 0.319946
+offset_right = 0.0799561
+offset_bottom = -0.280029
+flat = true
+
+[connection signal="pressed" from="TextureRect/ExitLeft" to="." method="_on_exit_left_pressed"]
+[connection signal="pressed" from="TextureRect/ExitRight" to="." method="_on_exit_right_pressed"]
+[connection signal="pressed" from="TextureRect/Next" to="." method="_on_next_pressed"]

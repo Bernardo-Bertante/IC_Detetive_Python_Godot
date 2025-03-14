@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://dr0wrhmiusjpa"]
+
+[ext_resource type="Script" path="res://Nodes/Scenes/openScene.gd" id="1_utquk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hsls7"]
+font_size = 32
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_utquk")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 620.0
+offset_top = 368.5
+offset_right = -620.0
+offset_bottom = -368.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "- O caso caiu no meu colo como um trovão em noite clara: Ada Logic, a jovem prodígio da cidade, 
+foi encontrada morta sob circunstâncias misteriosas. Uma mente brilhante apagada antes do tempo.
+ Agora cabe a mim decifrar essa equação sombria — cada pista, cada detalhe, até que a verdade venha à tona."
+label_settings = SubResource("LabelSettings_hsls7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="Label"]
+wait_time = 7.0
+one_shot = true
+autostart = true
+
+[node name="nextScene" type="Timer" parent="."]
+wait_time = 17.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Label/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="nextScene" to="." method="_on_next_scene_timeout"]

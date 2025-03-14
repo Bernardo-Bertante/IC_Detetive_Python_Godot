@@ -1,0 +1,181 @@
+[gd_scene load_steps=10 format=3 uid="uid://gtu50o36l3xa"]
+
+[ext_resource type="PackedScene" uid="uid://brve8dbkyn5h1" path="res://Nodes/Scenes/chatMain.tscn" id="1_3hahq"]
+[ext_resource type="Texture2D" uid="uid://cerec70frrcjb" path="res://Sprites/PC.png" id="1_apjx3"]
+[ext_resource type="Script" path="res://Nodes/Scenes/pc.gd" id="1_sp7ak"]
+[ext_resource type="Texture2D" uid="uid://cynlcspfw4nyj" path="res://Sprites/GeneralScreen.png" id="3_iruiw"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_bb2p3"]
+
+[sub_resource type="FontFile" id="FontFile_du0gl"]
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="Theme" id="Theme_emwe7"]
+default_font = SubResource("FontFile_du0gl")
+default_font_size = 30
+
+[sub_resource type="SystemFont" id="SystemFont_5a6jr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gxspg"]
+font_size = 22
+
+[node name="PC" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sp7ak")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_bb2p3")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_iruiw")
+
+[node name="Chat" parent="." instance=ExtResource("1_3hahq")]
+layout_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_apjx3")
+
+[node name="Control" type="Control" parent="."]
+layout_direction = 1
+layout_mode = 1
+anchor_left = 0.063
+anchor_top = 0.224
+anchor_right = 0.881
+anchor_bottom = 0.754
+offset_left = 0.360001
+offset_top = -0.240005
+offset_right = 0.319946
+offset_bottom = -0.039978
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Chat_Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.158
+anchor_top = 0.035
+anchor_right = 0.98
+anchor_bottom = 0.715
+offset_left = -0.42601
+offset_top = -0.105
+offset_right = -0.0600586
+offset_bottom = -0.14502
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/Chat_Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.998
+anchor_bottom = 0.996
+offset_right = -0.278015
+offset_bottom = 0.0959778
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Chat_Panel/ScrollContainer"]
+layout_mode = 2
+
+[node name="CodeEdit" type="TextEdit" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.308
+anchor_top = 0.777
+anchor_right = 0.82
+anchor_bottom = 0.955
+offset_left = -0.476044
+offset_top = -0.131012
+offset_right = 0.459961
+offset_bottom = 0.134979
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = SubResource("Theme_emwe7")
+theme_override_fonts/font = SubResource("SystemFont_5a6jr")
+placeholder_text = "your answer..."
+
+[node name="Send" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.836
+anchor_top = 0.789
+anchor_right = 0.892
+anchor_bottom = 0.956
+offset_left = -0.292053
+offset_top = 0.0329895
+offset_right = -0.404053
+offset_bottom = -0.0629883
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="TurnOff" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.891
+anchor_top = 0.822
+anchor_right = 0.908
+anchor_bottom = 0.853
+offset_left = -0.47998
+offset_top = 0.279968
+offset_right = 0.759888
+offset_bottom = -0.280029
+
+[node name="AnswerFind" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="Label" type="Label" parent="AnswerFind"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "- Preciso anotar essas informações valiosas do Sr. While.."
+label_settings = SubResource("LabelSettings_gxspg")
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="NextScene" type="Timer" parent="."]
+wait_time = 17.0
+
+[connection signal="pressed" from="Control/Send" to="." method="_on_send_pressed"]
+[connection signal="pressed" from="TurnOff" to="." method="_on_turn_off_pressed"]
+[connection signal="timeout" from="AnswerFind" to="." method="_on_answer_find_timeout"]
+[connection signal="timeout" from="NextScene" to="." method="_on_next_scene_timeout"]

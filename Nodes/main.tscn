@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://blmuqtpbivjn2"]
+
+[ext_resource type="Texture2D" uid="uid://ifosiwwscasv" path="res://Sprites/GameScenario-Sheet.png" id="1_2twlg"]
+[ext_resource type="Script" path="res://Nodes/main.gd" id="1_ds7yd"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ds7yd")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_2twlg")
+
+[node name="ButtonOn" type="Button" parent="Background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.662
+anchor_top = 0.663
+anchor_right = 0.673
+anchor_bottom = 0.686
+offset_left = -0.0220947
+offset_top = 1.11996
+offset_right = -1.11304
+offset_bottom = -0.360046
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonNotes" type="Button" parent="Background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.016
+anchor_top = 0.753
+anchor_right = 0.149
+anchor_bottom = 0.975
+offset_left = -0.496
+offset_top = -0.280029
+offset_right = 0.130997
+flat = true
+
+[connection signal="pressed" from="Background/ButtonOn" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Background/ButtonNotes" to="." method="_on_button_notes_pressed"]
